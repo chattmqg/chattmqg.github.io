@@ -79,6 +79,10 @@
 	
 	var _ExampleTwoDeepComponent2 = _interopRequireDefault(_ExampleTwoDeepComponent);
 	
+	var _BlogSlider = __webpack_require__(/*! ./components/BlogSlider */ 250);
+	
+	var _BlogSlider2 = _interopRequireDefault(_BlogSlider);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var routes = _react2.default.createElement(
@@ -90,6 +94,7 @@
 	    { path: 'example', mapMenuTitle: 'Example', component: _ExampleComponent2.default },
 	    _react2.default.createElement(_reactRouter.Route, { path: 'two-deep', mapMenuTitle: 'Two Deep', component: _ExampleTwoDeepComponent2.default })
 	  ),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'blog-slider', mapMenuTitle: 'Blog Slider', component: _BlogSlider2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', mapMenuTitle: 'Page Not Found', component: _PageNotFound2.default })
 	);
 	
@@ -28586,65 +28591,10 @@
 	  var children = _ref.children,
 	      routes = _ref.routes;
 	
-	  function generateMapMenu() {
-	    var path = '';
-	
-	    function nextPath(route) {
-	      path += (path.slice(-1) === '/' ? '' : '/') + (route.path === '/' ? '' : route.path);
-	      return path;
-	    }
-	
-	    return routes.filter(function (route) {
-	      return route.mapMenuTitle;
-	    }).map(function (route, index, array) {
-	      return _react2.default.createElement(
-	        'span',
-	        { key: index },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: nextPath(route) },
-	          route.mapMenuTitle
-	        ),
-	        index + 1 < array.length && ' / '
-	      );
-	    });
-	  }
-	
-	  var repoLink = 'https://github.com/rafrex/spa-github-pages';
-	
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Single Page Apps for GitHub Pages'
-	    ),
-	    _react2.default.createElement(
-	      'a',
-	      { href: repoLink },
-	      'https://github.com/rafrex/spa-github-pages'
-	    ),
-	    _react2.default.createElement(
-	      'nav',
-	      null,
-	      generateMapMenu()
-	    ),
-	    children,
-	    _react2.default.createElement(
-	      'div',
-	      { style: { color: '#A0A0A0', fontSize: '14px', marginTop: '50px' } },
-	      _react2.default.createElement(
-	        'a',
-	        { href: 'http://www.rafaelpedicini.com', className: 'extended-link' },
-	        'Code and concept by ',
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'link-style' },
-	          'Rafael Pedicini'
-	        )
-	      )
-	    )
+	    children
 	  );
 	}
 	
@@ -28674,76 +28624,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Home() {
-	  var reactLink = 'https://github.com/facebook/react';
-	  var reactRouterLink = 'https://github.com/reactjs/react-router';
-	  var ghPagesLink = 'https://pages.github.com/';
-	  var repoReadmeLink = 'https://github.com/rafrex/spa-github-pages#readme';
-	
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'This is an example single page app built with ',
-	      _react2.default.createElement(
-	        'a',
-	        { href: reactLink },
-	        'React'
-	      ),
-	      ' and ',
-	      ' ',
-	      _react2.default.createElement(
-	        'a',
-	        { href: reactRouterLink },
-	        'React\xA0Router'
-	      ),
-	      ' using ',
-	      ' ',
-	      _react2.default.createElement(
-	        'code',
-	        null,
-	        'browserHistory'
-	      ),
-	      '. Navigate with the links below and refresh the page or copy/paste the url to test out the redirect functionality deployed to overcome ',
-	      ' ',
-	      _react2.default.createElement(
-	        'a',
-	        { href: ghPagesLink },
-	        'GitHub\xA0Pages'
-	      ),
-	      ' incompatibility with single page apps (like this one).'
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Please see the ',
-	      _react2.default.createElement(
-	        'a',
-	        { href: repoReadmeLink },
-	        'repo readme'
-	      ),
-	      ' for instructions on how to use this boilerplate to deploy your own single page app using GitHub Pages.'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/example' },
-	        'Example page'
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/example/two-deep?field1=foo&field2=bar#boom!' },
-	        'Example two deep with query and hash'
-	      )
-	    )
-	  );
+	  return _react2.default.createElement('div', null);
 	}
 	
 	exports.default = Home;
@@ -28956,6 +28837,56 @@
 	ExampleTwoDeepComponent.propTypes = propTypes;
 	
 	exports.default = ExampleTwoDeepComponent;
+
+/***/ },
+/* 250 */
+/*!***********************************!*\
+  !*** ./components/BlogSlider.jsx ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 172);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var propTypes = {
+	  location: _react.PropTypes.object.isRequired
+	};
+	
+	function BlogSlider(_ref) {
+	  var location = _ref.location;
+	
+	  var post = location.query['post'];
+	
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        'blog post: ',
+	        post
+	      )
+	    )
+	  );
+	}
+	
+	BlogSlider.propTypes = propTypes;
+	
+	exports.default = BlogSlider;
 
 /***/ }
 /******/ ]);

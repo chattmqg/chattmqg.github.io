@@ -8,7 +8,7 @@ import Home from './components/Home';
 import PageNotFound from './components/PageNotFound';
 import ExampleComponent from './components/ExampleComponent';
 import ExampleTwoDeepComponent from './components/ExampleTwoDeepComponent';
-
+import BlogSlider from './components/BlogSlider';
 
 const routes = (
   <Route path="/" mapMenuTitle="Home" component={App}>
@@ -17,6 +17,8 @@ const routes = (
     <Route path="example" mapMenuTitle="Example" component={ExampleComponent}>
       <Route path="two-deep" mapMenuTitle="Two Deep" component={ExampleTwoDeepComponent} />
     </Route>
+
+    <Route path="blog-slider" mapMenuTitle="Blog Slider" component={BlogSlider}/>
 
     <Route path="*" mapMenuTitle="Page Not Found" component={PageNotFound} />
   </Route>
