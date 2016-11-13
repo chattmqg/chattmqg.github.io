@@ -12,11 +12,14 @@
   "author": "Rafael Pedicini <code@rafrex.com>",
   "license": "MIT",
   "dependencies": {
+    "css-loader": "^0.25.0",
     "current-input": "^1.1.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-fetch": "0.0.9",
-    "react-router": "^2.4.1"
+    "react-router": "^2.4.1",
+    "react-slick": "^0.14.5",
+    "style-loader": "^0.13.1"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
