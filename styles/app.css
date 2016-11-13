@@ -35,7 +35,7 @@ body {
 /*root div in index.html*/
 #root {
   min-height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #fff;
 }
 
 /*reactroot div*/
@@ -62,4 +62,32 @@ space for vertical scroll bar without creating horizontal scroll bar
   #root > div {
     max-width: calc(100vw - 40px);
   }
+}
+
+/*slick carousel*/
+.slick-dots li {
+  width: 16px;
+}
+.slick-dots li button:before {
+  font-size: 16px;
+}
+
+.slick-prev {
+  left:      -40px;
+  width:     36px;
+}
+
+.slick-next {
+  right:     -40px;
+  width:     36px;
+}
+
+.slick-prev:before {
+  color:     #444;
+  font-size: 36px;
+}
+
+.slick-next:before {
+  color:     #444;
+  font-size: 36px;
 }

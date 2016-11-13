@@ -38,12 +38,11 @@ class SliderWrapper extends React.Component {
       slidesToScroll: 1,
       lazyLoad:       true
     };
-    console.log(styles.image);
     const images = this.props.files.map(function(file) {
       var uri = 'https://drive.google.com/uc?export=download&id=' +
                 file.id;
       return (
-        <div key={file.id}>
+        <div key={file.id} className={styles.wrapper}>
           <img src={uri} className={styles.image}/>
         </div>
       );

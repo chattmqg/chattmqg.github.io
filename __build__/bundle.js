@@ -28925,12 +28925,11 @@
 	        slidesToScroll: 1,
 	        lazyLoad: true
 	      };
-	      console.log(_slider2.default.image);
 	      var images = this.props.files.map(function (file) {
 	        var uri = 'https://drive.google.com/uc?export=download&id=' + file.id;
 	        return _react2.default.createElement(
 	          'div',
-	          { key: file.id },
+	          { key: file.id, className: _slider2.default.wrapper },
 	          _react2.default.createElement('img', { src: uri, className: _slider2.default.image })
 	        );
 	      });
@@ -31824,10 +31823,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._2V2gBDrksPTrKDD1dBMgJp {\n  max-height:   450px;\n  margin-left:  auto;\n  margin-right: auto;\n}\n", ""]);
+	exports.push([module.id, ".DBSt95Yy9jIA9SvIxVbzV {\n  position: relative;\n  height:   480px;\n}\n\n._2V2gBDrksPTrKDD1dBMgJp {\n  position:   absolute;\n  top:        0;\n  bottom:     0;\n  left:       0;\n  right:      0;\n  margin:     auto;\n  max-width:  100%;\n  max-height: 100%;\n}\n", ""]);
 	
 	// exports
 	exports.locals = {
+		"wrapper": "DBSt95Yy9jIA9SvIxVbzV",
 		"image": "_2V2gBDrksPTrKDD1dBMgJp"
 	};
 
