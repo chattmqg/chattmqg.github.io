@@ -6,17 +6,11 @@ import 'current-input';
 import App from './components/App';
 import Home from './components/Home';
 import PageNotFound from './components/PageNotFound';
-import ExampleComponent from './components/ExampleComponent';
-import ExampleTwoDeepComponent from './components/ExampleTwoDeepComponent';
 import BlogSlider from './components/BlogSlider';
 
 const routes = (
   <Route path="/" mapMenuTitle="Home" component={App}>
     <IndexRoute component={Home} />
-
-    <Route path="example" mapMenuTitle="Example" component={ExampleComponent}>
-      <Route path="two-deep" mapMenuTitle="Two Deep" component={ExampleTwoDeepComponent} />
-    </Route>
 
     <Route path="blog-slider" mapMenuTitle="Blog Slider" component={BlogSlider}/>
 

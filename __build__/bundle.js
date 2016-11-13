@@ -71,14 +71,6 @@
 	
 	var _PageNotFound2 = _interopRequireDefault(_PageNotFound);
 	
-	var _ExampleComponent = __webpack_require__(/*! ./components/ExampleComponent */ 248);
-	
-	var _ExampleComponent2 = _interopRequireDefault(_ExampleComponent);
-	
-	var _ExampleTwoDeepComponent = __webpack_require__(/*! ./components/ExampleTwoDeepComponent */ 249);
-	
-	var _ExampleTwoDeepComponent2 = _interopRequireDefault(_ExampleTwoDeepComponent);
-	
 	var _BlogSlider = __webpack_require__(/*! ./components/BlogSlider */ 250);
 	
 	var _BlogSlider2 = _interopRequireDefault(_BlogSlider);
@@ -89,11 +81,6 @@
 	  _reactRouter.Route,
 	  { path: '/', mapMenuTitle: 'Home', component: _App2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-	  _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: 'example', mapMenuTitle: 'Example', component: _ExampleComponent2.default },
-	    _react2.default.createElement(_reactRouter.Route, { path: 'two-deep', mapMenuTitle: 'Two Deep', component: _ExampleTwoDeepComponent2.default })
-	  ),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'blog-slider', mapMenuTitle: 'Blog Slider', component: _BlogSlider2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', mapMenuTitle: 'Page Not Found', component: _PageNotFound2.default })
 	);
@@ -28673,172 +28660,8 @@
 	exports.default = PageNotFound;
 
 /***/ },
-/* 248 */
-/*!*****************************************!*\
-  !*** ./components/ExampleComponent.jsx ***!
-  \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 172);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var propTypes = {
-	  children: _react.PropTypes.element
-	};
-	
-	function ExampleComponent(_ref) {
-	  var children = _ref.children;
-	
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'This is an example page. Refresh the page or copy/paste the url to test out the redirect functionality (this same page should load after the redirect).'
-	    ),
-	    children || _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/example/two-deep?field1=foo&field2=bar#boom!' },
-	        'Example two deep with query and hash'
-	      )
-	    )
-	  );
-	}
-	
-	ExampleComponent.propTypes = propTypes;
-	
-	exports.default = ExampleComponent;
-
-/***/ },
-/* 249 */
-/*!************************************************!*\
-  !*** ./components/ExampleTwoDeepComponent.jsx ***!
-  \************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 172);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var propTypes = {
-	  location: _react.PropTypes.object.isRequired
-	};
-	
-	function ExampleTwoDeepComponent(_ref) {
-	  var location = _ref.location;
-	
-	  var queryPresent = Object.keys(location.query).length !== 0;
-	  var hashPresent = location.hash !== '';
-	
-	  function queryStringTitle() {
-	    if (queryPresent) return 'The query string field-value pairs are:';
-	    return 'No query string in the url';
-	  }
-	
-	  function hashFragmentTitle() {
-	    if (hashPresent) return 'The hash fragment is:';
-	    return 'No hash frgament in the url';
-	  }
-	
-	  function linkToShowQueryAndOrHash() {
-	    if (queryPresent && hashPresent) return null;
-	
-	    var queryString = queryPresent ? location.search : '?field1=foo&field2=bar';
-	    var hashFragment = hashPresent ? location.hash : '#boom!';
-	
-	    var linkText = '';
-	    if (queryPresent && !hashPresent) linkText = 'Show with hash fragment';
-	    if (!queryPresent && hashPresent) linkText = 'Show with query string';
-	    if (!queryPresent && !hashPresent) linkText = 'Show with query string and hash fragment';
-	
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/example/two-deep' + queryString + hashFragment },
-	        linkText
-	      )
-	    );
-	  }
-	
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        queryStringTitle()
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        Object.keys(location.query).map(function (field, index) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: index },
-	            field,
-	            ': ',
-	            location.query[field]
-	          );
-	        })
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        hashFragmentTitle()
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        hashPresent ? _react2.default.createElement(
-	          'li',
-	          null,
-	          location.hash.slice(1)
-	        ) : undefined
-	      )
-	    ),
-	    linkToShowQueryAndOrHash()
-	  );
-	}
-	
-	ExampleTwoDeepComponent.propTypes = propTypes;
-	
-	exports.default = ExampleTwoDeepComponent;
-
-/***/ },
+/* 248 */,
+/* 249 */,
 /* 250 */
 /*!***********************************!*\
   !*** ./components/BlogSlider.jsx ***!
