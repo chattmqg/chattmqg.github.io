@@ -31824,7 +31824,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2V2gBDrksPTrKDD1dBMgJp {\n}\n", ""]);
+	exports.push([module.id, "._2V2gBDrksPTrKDD1dBMgJp {\n  max-height:   480px;\n  margin-left:  auto;\n  margin-right: auto;\n}\n", ""]);
 	
 	// exports
 	exports.locals = {
