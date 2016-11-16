@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Single Page Apps for GitHub Pages",
   "scripts": {
-    "start": "webpack -d --watch & live-server --host=localhost --entry-file=404.html"
+    "start": "webpack -d --watch & live-server --entry-file=404.html"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-fetch": "0.0.9",
-    "react-image-lightbox": "^3.2.0",
     "react-router": "^2.4.1",
     "react-slick": "^0.14.5",
     "style-loader": "^0.13.1"

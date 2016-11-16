@@ -1,8 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import Fetch from 'react-fetch'
 import Slider from 'react-slick';
-import Lightbox from 'react-image-lightbox';
 import styles from './slider.css';
 
 const propTypes = {
@@ -29,16 +28,8 @@ function BlogSlider({ location }) {
 
 BlogSlider.propTypes = propTypes;
 
-class SliderWrapper extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        lightbox: null
-      };
-  }
-
+class SliderWrapper extends React.Component {
   render() {
-    const self = this;
     const settings = {
       dots:           true,
       infinite:       true,
@@ -47,36 +38,25 @@ class SliderWrapper extends Component {
       slidesToScroll: 1,
       lazyLoad:       true
     };
-    const {
-      lightbox
-    } = this.state;
     const images = this.props.files.map(function(file) {
       var uri = 'https://drive.google.com/uc?export=download&id=' +
                 file.id;
       return (
         <div key={file.id} className={styles.wrapper}>
-          <img src={uri}
-               className={styles.image}
-               onClick={() => self.setState({ lightbox: uri })}
-          />
+          <img src={uri} className={styles.image}/>
         </div>
       );
     });
-    return (
-      <div>
-        { images.length > 0 &&
-          <Slider {...settings} className={styles.container}>
+    if (images.length === 0)
+      return <div/>
+    else
+      return (
+        <div>
+          <Slider {...settings}>
             {images}
           </Slider>
-        }
-        { lightbox &&
-          <Lightbox
-              mainSrc={lightbox}
-              onCloseRequest={() => this.setState({ lightbox: null })}
-          />
-        }
-      </div>
-    );
+        </div>
+      );
   }
 }
 SliderWrapper.defaultProps = {
