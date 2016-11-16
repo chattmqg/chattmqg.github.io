@@ -14,7 +14,7 @@ function BlogSlider({ location }) {
   function getFetchUri (post) {
     return "https://www.googleapis.com/drive/v3/files?q='" +
            post +
-           "'+in+parents&key=AIzaSyDmj1s8QUQnoqwZCNTqdc15KPsjMAGaF2A";
+           "'+in+parents&key=AIzaSyD-Wn8JbK9NVvjXUw44VcgOlqlTjyx4x5s";
   }
 
   return (
