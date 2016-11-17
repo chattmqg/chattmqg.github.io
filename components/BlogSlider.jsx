@@ -5,6 +5,15 @@ import Slider from 'react-slick';
 import styles from './slider.css';
 
 /**
+ * Google Drive API keys
+ * see https://console.developers.google.com/apis/credentials
+ */
+const apiKeys = {
+  localhost:  'AIzaSyA9ktbuz-q_yQESoQrX8nAjLq4Di5yPiFc',
+  production: 'AIzaSyD-Wn8JbK9NVvjXUw44VcgOlqlTjyx4x5s'
+};
+
+/**
  * image slider/carousel for the MQG blog
  * . fetches a list of image names from a public Google Drive folder
  *   specified in the "post" query string parameter
@@ -15,13 +24,11 @@ import styles from './slider.css';
 class BlogSlider extends React.Component {
   // component properties
   static propTypes = {
-    location: PropTypes.object.isRequired,
-  }
+    location: PropTypes.object.isRequired
+  };
   // component rendering
   render() {
-    const key  = window.location.hostname === 'localhost' ?
-                    'AIzaSyA9ktbuz-q_yQESoQrX8nAjLq4Di5yPiFc' :
-                    'AIzaSyD-Wn8JbK9NVvjXUw44VcgOlqlTjyx4x5s';
+    const key  = apiKeys[window.location.hostname] || apiKeys.production;
     const post = this.props.location.query['post'];
     const uri  = 'https://www.googleapis.com/drive/v3/files'
                  + '?q=\'' + post + '\'+in+parents'
@@ -47,7 +54,7 @@ class SliderWrapper extends React.Component {
   // component properties
   static defaultProps = {
     files: []
-  }
+  };
   // component rendering
   render() {
     const settings = {
@@ -64,12 +71,14 @@ class SliderWrapper extends React.Component {
 
     return (
       <div>
-        { images.length > 0 &&
+        {
+          images.length > 0 &&
           <Slider {...settings}>
             {images}
           </Slider>
         }
-        { this.props.error &&
+        {
+          this.props.error &&
           <pre className={styles.error}>
             {JSON.stringify(this.props.error, null, '  ')}
           </pre>
