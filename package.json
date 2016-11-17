@@ -1,15 +1,16 @@
 {
-  "name": "spa-github-pages",
-  "version": "2.0.0",
-  "description": "Single Page Apps for GitHub Pages",
+  "name": "chattmqg.github.io",
+  "version": "1.0.0",
+  "description": "Chattanooga Modern Quilt Guild",
   "scripts": {
-    "start": "webpack -d --watch & live-server --entry-file=404.html"
+    "start": "webpack -d --watch & live-server --host=localhost --entry-file=404.html",
+    "compile":  "webpack -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafrex/spa-github-pages.git"
+    "url": "git+https://github.com/chattmqg/chattmqg.github.io.git"
   },
-  "author": "Rafael Pedicini <code@rafrex.com>",
+  "author": "Brent Spell <brent@brentspell.com>",
   "license": "MIT",
   "dependencies": {
     "css-loader": "^0.25.0",
