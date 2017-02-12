@@ -90,9 +90,12 @@ class SliderWrapper extends React.Component {
    * renders a single slider image
    * creates a public export link to the image in the drive,
    * which avoids API request usage/quotas for image retrieval
+   * these requests go through a cloudfront distribution (at brentspell.com),
+   * in order to avoid session timeouts at google, even though
+   * the images have been given public access
    */
   renderImage(file) {
-    const uri = 'https://drive.google.com/uc?export=download&id=' + file.id;
+    const uri = 'https://googledrive.brentspell.com/uc?export=download&id=' + file.id;
     return (
       <div key={file.id} className={styles.wrapper}>
         <img src={uri} className={styles.image}/>
