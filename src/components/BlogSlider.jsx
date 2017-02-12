@@ -95,7 +95,7 @@ class SliderWrapper extends React.Component {
    * the images have been given public access
    */
   renderImage(file) {
-    const uri = 'https://googledrive.brentspell.com/uc?export=download&id=' + file.id;
+    const uri = 'http://googledrive.brentspell.com/uc?export=download&id=' + file.id;
     return (
       <div key={file.id} className={styles.wrapper}>
         <img src={uri} className={styles.image}/>
