@@ -35,7 +35,7 @@ class BlogSlider extends React.Component {
                  + '&key=' + key;
 
     return (
-      <div>
+      <div className={styles.slider}>
         <Fetch url={uri}>
           <SliderWrapper/>
         </Fetch>
@@ -98,7 +98,9 @@ class SliderWrapper extends React.Component {
     const uri = 'https://d37mjccmyrzohp.cloudfront.net/uc?export=download&id=' + file.id;
     return (
       <figure key={file.id} className={styles.wrapper}>
-        <img src={uri} className={styles.image}/>
+        <a href={uri} target="_blank">
+          <img src={uri} className={styles.image}/>
+        </a>
         <figcaption className={styles.caption}>{file.name.split('.')[0]}</figcaption>
       </figure>
     );
