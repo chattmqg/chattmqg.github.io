@@ -95,7 +95,7 @@ class SliderWrapper extends React.Component {
    * the images have been given public access
    */
   renderImage(file) {
-    const uri = 'https://d37mjccmyrzohp.cloudfront.net/uc?export=download&id=' + file.id;
+    const uri = 'https://d37mjccmyrzohp.cloudfront.net/uc?id=' + file.id;
     return (
       <figure key={file.id} className={styles.wrapper}>
         <a href={uri} target="_blank">
