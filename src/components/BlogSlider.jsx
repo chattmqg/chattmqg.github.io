@@ -97,12 +97,14 @@ class SliderWrapper extends React.Component {
   renderImage(file) {
     const uri = 'https://d37mjccmyrzohp.cloudfront.net/uc?id=' + file.id;
     return (
-      <figure key={file.id} className={styles.wrapper}>
-        <a href={uri} target="_blank">
-          <img src={uri} className={styles.image}/>
-        </a>
-        <figcaption className={styles.caption}>{file.name.split('.')[0]}</figcaption>
-      </figure>
+      <div className={styles.wrapper}>
+        <figure key={file.id} className={styles.figure}>
+          <a href={uri} target="_blank">
+            <img src={uri} className={styles.image}/>
+          </a>
+          <figcaption className={styles.caption}>{file.name.split('.')[0]}</figcaption>
+        </figure>
+      </div>
     );
   }
 }

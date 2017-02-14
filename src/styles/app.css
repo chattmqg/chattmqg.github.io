@@ -73,12 +73,10 @@ space for vertical scroll bar without creating horizontal scroll bar
 }
 
 .slick-prev {
-  left:      -40px;
   width:     36px;
 }
 
 .slick-next {
-  right:     -40px;
   width:     36px;
 }
 
