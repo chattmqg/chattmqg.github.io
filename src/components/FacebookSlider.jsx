@@ -5,34 +5,24 @@ import Slider from 'react-slick';
 import styles from './slider.css';
 
 /**
- * Google Drive API keys
- * see https://console.developers.google.com/apis/credentials
- */
-const apiKeys = {
-  localhost:  'AIzaSyA9ktbuz-q_yQESoQrX8nAjLq4Di5yPiFc',
-  production: 'AIzaSyD-Wn8JbK9NVvjXUw44VcgOlqlTjyx4x5s'
-};
-
-/**
  * image slider/carousel for the MQG blog
- * . fetches a list of image names from a public Google Drive folder
- *   specified in the "post" query string parameter
- *      ex: ?post=0B3lnTTxoVKwSdk5qbXVjMmhWcVk
- * . uses the MQG's API key for Google Drive requests
+ * . fetches a list of image names from a public Facebook album
+ *   specified in the "album" query string parameter
+ *      ex: ?album=0B3lnTTxoVKwSdk5qbXVjMmhWcVk
+ * . albums are proxied through a CloudFront distribution to hide API keys
  * . renders the results using the SliderWrapper component
  */
-class BlogSlider extends React.Component {
+class FacebookSlider extends React.Component {
   // component properties
   static propTypes = {
     location: PropTypes.object.isRequired
   };
   // component rendering
   render() {
-    const key  = apiKeys[window.location.hostname] || apiKeys.production;
-    const post = this.props.location.query['post'];
-    const uri  = 'https://www.googleapis.com/drive/v3/files'
-                 + '?q=\'' + post + '\'+in+parents'
-                 + '&key=' + key;
+    const album = this.props.location.query['album'];
+    const uri   = 'https://d184vr405alahm.cloudfront.net/v2.8/'
+                  + album
+                  + '/photos?fields=name,images,link';
 
     return (
       <div className={styles.slider}>
@@ -46,14 +36,14 @@ class BlogSlider extends React.Component {
 
 /**
  * image slider fetch handler component
- * . receives the list of files from the Google Drive folder
+ * . receives the list of files from the Facebook album
  * . renders the slick carousel container
  * . renders each image inside the carousel
  */
 class SliderWrapper extends React.Component {
   // component properties
   static defaultProps = {
-    files: []
+    data: []
   };
   // component rendering
   render() {
@@ -67,7 +57,7 @@ class SliderWrapper extends React.Component {
       autoplay:       true,   // automatically navigate to the next image
       autoplaySpeed:  5000,   // time to wait before auto navigating
     };
-    const images = this.props.files.map(this.renderImage);
+    const images = this.props.data.map(this.renderImage);
 
     return (
       <div>
@@ -95,18 +85,17 @@ class SliderWrapper extends React.Component {
    * the images have been given public access
    */
   renderImage(file) {
-    const uri = 'https://d37mjccmyrzohp.cloudfront.net/uc?authuser=0&id=' + file.id;
     return (
       <div className={styles.wrapper}>
         <figure key={file.id} className={styles.figure}>
-          <a href={uri} target="_blank">
-            <img src={uri} className={styles.image}/>
+          <a href={file.link} target="_blank">
+            <img src={file.images[0].source} className={styles.image}/>
           </a>
-          <figcaption className={styles.caption}>{file.name.split('.')[0]}</figcaption>
+          <figcaption className={styles.caption}>{file.name}</figcaption>
         </figure>
       </div>
     );
   }
 }
 
-export default BlogSlider;
+export default FacebookSlider;

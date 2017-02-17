@@ -6,13 +6,15 @@ import 'current-input';
 import App from './components/App';
 import Home from './components/Home';
 import PageNotFound from './components/PageNotFound';
-import BlogSlider from './components/BlogSlider';
+import GoogleSlider from './components/GoogleSlider';
+import FacebookSlider from './components/FacebookSlider';
 
 const routes = (
   <Route path="/" mapMenuTitle="Home" component={App}>
     <IndexRoute component={Home} />
 
-    <Route path="blog-slider" mapMenuTitle="Blog Slider" component={BlogSlider}/>
+    <Route path="blog-slider" mapMenuTitle="Google Blog Slider" component={GoogleSlider}/>
+    <Route path="facebook-slider" mapMenuTitle="Facebook Blog Slider" component={FacebookSlider}/>
 
     <Route path="*" mapMenuTitle="Page Not Found" component={PageNotFound} />
   </Route>
