@@ -72,20 +72,11 @@ space for vertical scroll bar without creating horizontal scroll bar
   font-size: 16px;
 }
 
-.slick-prev {
+.slick-prev, .slick-next {
   width:     36px;
+  z-index:   1;
 }
-
-.slick-next {
-  width:     36px;
-}
-
-.slick-prev:before {
-  color:     #444;
-  font-size: 36px;
-}
-
-.slick-next:before {
+.slick-prev:before, .slick-next:before {
   color:     #444;
   font-size: 36px;
 }
